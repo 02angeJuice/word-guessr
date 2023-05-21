@@ -4,7 +4,7 @@ const genShuffle = (word) => {
     const j = Math.floor(Math.random() * (i + 1))
     ;[chars[i], chars[j]] = [chars[j], chars[i]]
   }
-  return chars.join('')
+  return chars.join('') === word ? genShuffle(word) : chars.join('')
 }
 
 export { genShuffle }
