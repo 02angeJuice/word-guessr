@@ -4,18 +4,19 @@ import SpreadChars from './SpreadChars'
 import ShuffleWord from './ShuffleWord'
 import { genShuffle } from './utils'
 
-type Props = {}
-
-const Form = (props: Props) => {
+const Form = () => {
   const [word, setWord] = useState('')
   const [vocab, setVocab] = useState([])
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.FormEvent) => {
     const inputWord = event.target.value
-    setWord(inputWord)
+
+    setWord(inputWord.trim())
   }
 
-  const onButtonClick = () => {
+  const onButtonClick = (e: React.FormEvent) => {
+    e.preventDefault()
+
     if (word !== '') {
       setVocab([
         ...vocab,
@@ -30,20 +31,20 @@ const Form = (props: Props) => {
       <div>
         <SpreadChars word={word} />
       </div>
-      <div className="m-4">
+      <form onSubmit={onButtonClick} className="m-4">
         <input
-          id="word"
           onChange={handleInputChange}
           className="text-3xl p-3 text-center"
           type="text"
           value={word}
           placeholder="typing word..."
+          maxLength={13}
           required
         />
         <button className="m-4 text-2xl !outline-none" onClick={onButtonClick}>
-          Submit
+          Add <span className="">🧡</span>
         </button>
-      </div>
+      </form>
 
       <div>
         <ShuffleWord vocab={vocab} />
