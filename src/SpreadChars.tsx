@@ -5,14 +5,14 @@ type Props = {
   word: string
 }
 
-const SpreadWord = ({ word }: Props) => {
+const SpreadChars = ({ word }: Props) => {
   const wordArr: string[] = Array.from(word)
 
   return (
     <div>
       <div></div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-1">
         {wordArr.map((w, index) => {
           return <Char key={index} char={w} />
         })}
@@ -21,4 +21,4 @@ const SpreadWord = ({ word }: Props) => {
   )
 }
 
-export default SpreadWord
+export default SpreadChars
