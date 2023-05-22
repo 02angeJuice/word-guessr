@@ -22,10 +22,7 @@ const BookStoreList = () => {
         <BookStoreForm addBook={addBook} />
       </div>
       <div>
-        <table
-          className={`text-blue-100 text-center ${
-            items.length === 0 ? 'hidden' : ''
-          }`}>
+        <table className={`text-blue-100 text-center`}>
           <thead>
             <tr>
               <th className="px-3">Title Book</th>

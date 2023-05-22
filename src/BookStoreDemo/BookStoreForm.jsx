@@ -1,33 +1,48 @@
 import React, { useState } from 'react'
 
 const BookStoreForm = ({ addBook }) => {
-  const [bookForm, setBookForm] = useState({
+  const [bookFormData, setBookFormData] = useState({
     title: '',
     author: '',
     price: 0,
     qty: 0,
     rating: 5,
   })
+  const [bookisValid, setBookIsValid] = useState(false)
+
+  const validate = (input) => {
+    if (input.length === 0) {
+      setBookIsValid(false)
+    } else {
+      setBookIsValid(true)
+    }
+    // input.length === 0 ? setBookIsValid(false) : setBookIsValid(true)
+  }
 
   const handleChangeInput = (e) => {
+    validate(e.target.value)
+
     const form = e.target.name
     const value = e.target.value
 
-    setBookForm((curr) => {
+    setBookFormData((curr) => {
       return { ...curr, [form]: value }
     })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addBook(bookForm)
-    setBookForm({
-      title: '',
-      author: '',
-      price: 0,
-      qty: 0,
-      rating: 5,
-    })
+
+    if (bookisValid) {
+      addBook(bookFormData)
+      setBookFormData({
+        title: '',
+        author: '',
+        price: 0,
+        qty: 0,
+        rating: 5,
+      })
+    }
   }
 
   return (
@@ -49,8 +64,11 @@ const BookStoreForm = ({ addBook }) => {
             id="title"
             placeholder="title"
             onChange={handleChangeInput}
-            value={bookForm.title}
+            value={bookFormData.title}
           />
+          {!bookisValid && (
+            <span className="text-red-500 text-sm"> required!</span>
+          )}
         </div>
         <div className="mb-4">
           <label
@@ -65,7 +83,7 @@ const BookStoreForm = ({ addBook }) => {
             id="author"
             placeholder="author"
             onChange={handleChangeInput}
-            value={bookForm.author}
+            value={bookFormData.author}
           />
         </div>
         <div className="mb-4">
@@ -81,7 +99,7 @@ const BookStoreForm = ({ addBook }) => {
             id="price"
             placeholder="price"
             onChange={handleChangeInput}
-            value={bookForm.price}
+            value={bookFormData.price}
           />
         </div>
         <div className="mb-4">
@@ -97,7 +115,7 @@ const BookStoreForm = ({ addBook }) => {
             id="qty"
             placeholder="qty"
             onChange={handleChangeInput}
-            value={bookForm.qty}
+            value={bookFormData.qty}
           />
         </div>
         <div className="mb-4">
@@ -115,7 +133,7 @@ const BookStoreForm = ({ addBook }) => {
             id="rating"
             placeholder="rating"
             onChange={handleChangeInput}
-            value={bookForm.rating}
+            value={bookFormData.rating}
           />
         </div>
 
