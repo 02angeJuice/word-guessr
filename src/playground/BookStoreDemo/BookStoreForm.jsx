@@ -22,11 +22,8 @@ const BookStoreForm = ({ addBook }) => {
   const handleChangeInput = (e) => {
     validate(e.target.value)
 
-    const form = e.target.name
-    const value = e.target.value
-
     setBookFormData((curr) => {
-      return { ...curr, [form]: value }
+      return { ...curr, [e.target.name]: e.target.value }
     })
   }
 

@@ -1,5 +1,5 @@
 import WordGuessr from './WordGuessr'
-import BookStoreList from './playground/BookStoreDemo/BookStoreList'
+import BookStore from './playground/BookStoreDemo/BookStore'
 import Counter from './playground/Counter'
 import FetchAPI from './playground/FetchAPI'
 import StudentGrading from './playground/StudentGrading/StudentGrading'
@@ -13,6 +13,7 @@ function App() {
         <BlogPost />
         {/* <StudentGrading /> */}
         {/* <Calculate /> */}
+        <BookStore />
       </div>
     </div>
   )

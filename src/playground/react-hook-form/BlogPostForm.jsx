@@ -32,8 +32,6 @@ const BlogPostForm = ({ addItem, editItem }) => {
       formData
     )
 
-    // e.preventDefault()
-
     addItem(postForm)
 
     setPostForm({
