@@ -1,20 +1,19 @@
-import './App.css'
 import WordGuessr from './WordGuessr'
 import BookStoreList from './playground/BookStoreDemo/BookStoreList'
-import Counter from './playground/counter'
+import Counter from './playground/Counter'
 import FetchAPI from './playground/FetchAPI'
-import StudentForm from './playground/StudentGrading/StudentForm'
-import CalculatorForm from './playground/Calculator/CalculatorForm'
+import StudentGrading from './playground/StudentGrading/StudentGrading'
+import Calculate from './playground/Calculator/Calculate'
+import BlogPost from './playground/react-hook-form/BlogPost'
 
 function App() {
   return (
-    <div>
-      {/* <WordGuessr /> */}
-      {/* <BookStoreList /> */}
-      {/* <Counter />
-      <FetchAPI /> */}
-      <StudentForm />
-      {/* <CalculatorForm /> */}
+    <div className="p-16 mt-10 grid grid-cols-1 gap-8">
+      <div className="grid-item">
+        <BlogPost />
+        {/* <StudentGrading /> */}
+        {/* <Calculate /> */}
+      </div>
     </div>
   )
 }

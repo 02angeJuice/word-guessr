@@ -13,7 +13,8 @@ const BookStoreList = () => {
   }
 
   const deleteItem = (id) => {
-    setitems(items.filter((item) => item._id !== id))
+    confirm('Confirm Delete!!') &&
+      setitems(items.filter((item) => item._id !== id))
   }
 
   return (

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import StudentResult from './StudentResult'
+import SudentGrading from './StudentGrading'
 
-const StudentForm = ({ addItem }) => {
+const StudentForm = ({ getItem }) => {
   const [studentForm, setStudentForm] = useState({
     fullname: '',
     uid: '',
     score: '',
   })
-  const [studentData, setStudentData] = useState({})
+  // const [studentData, setStudentData] = useState({})
 
   const handleChangeInput = (e) => {
     setStudentForm((curr) => {
@@ -17,13 +17,13 @@ const StudentForm = ({ addItem }) => {
 
   const handleSubmitForm = (e) => {
     e.preventDefault()
-    setStudentData(studentForm)
+    getItem(studentForm)
     setStudentForm({ fullname: '', uid: '', score: '' })
   }
 
   return (
     <div>
-      <div className="text-center">
+      <div className="text-center bg-gray-700 py-2 rounded-lg">
         <div>
           <h1 className="text-white text-4xl mb-4">คำนวนเกรด</h1>
         </div>
@@ -76,9 +76,6 @@ const StudentForm = ({ addItem }) => {
             </button>
           </div>
         </form>
-      </div>
-      <div>
-        <StudentResult item={studentData} />
       </div>
     </div>
   )

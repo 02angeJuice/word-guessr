@@ -1,25 +1,11 @@
 import React, { useState } from 'react'
-import CalculateResult from './CalculateResult'
 
-const CalculatorForm = () => {
+const CalculatorForm = ({ getResult, operators }) => {
   const [calculateForm, setCalculateForm] = useState({
     num1: 0,
     num2: 0,
     menu: 0,
   })
-  const [data, setData] = useState({})
-
-  const operators = ['+', '-', '*', '/', '%']
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
-    setData(calculateForm)
-    setCalculateForm({
-      num1: 0,
-      num2: 0,
-      menu: 0,
-    })
-  }
 
   const handleChangeInput = (e) => {
     setCalculateForm((curr) => {
@@ -30,13 +16,24 @@ const CalculatorForm = () => {
     })
   }
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+
+    getResult(calculateForm)
+
+    setCalculateForm({
+      num1: 0,
+      num2: 0,
+      menu: 0,
+    })
+  }
   return (
-    <div className="text-white">
+    <div className="text-black">
       <form onSubmit={handleFormSubmit} action="">
         <div className="mb-3">
           <label htmlFor="num1">Number1: </label>
           <input
-            className="ml-3 text-black"
+            className="ml-3 text-black border border-black rounded-sm pl-1"
             type="number"
             name="num1"
             id="num1"
@@ -49,7 +46,7 @@ const CalculatorForm = () => {
         <div className="mb-3">
           <label htmlFor="num2">Number2: </label>
           <input
-            className="ml-3 text-black"
+            className="ml-3 text-black border border-black rounded-sm pl-1"
             type="number"
             name="num2"
             id="num2"
@@ -75,7 +72,7 @@ const CalculatorForm = () => {
         <div className="mb-3">
           <label htmlFor="menu">Choose Menu:</label>
           <input
-            className="ml-3 text-black"
+            className="ml-3 text-black border border-black rounded-sm pl-1"
             type="number"
             name="menu"
             id="menu"
@@ -87,13 +84,11 @@ const CalculatorForm = () => {
         </div>
 
         <div>
-          <button className="bg-black px-4 py-2 rounded-lg">Calculate</button>
+          <button className="bg-black px-4 py-2 rounded-lg text-white">
+            Calculate
+          </button>
         </div>
       </form>
-
-      <div>
-        <CalculateResult item={data} operators={operators} />
-      </div>
     </div>
   )
 }
