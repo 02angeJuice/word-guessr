@@ -41,7 +41,9 @@ const Form = () => {
           maxLength={13}
           required
         />
-        <button className="m-4 text-2xl !outline-none" onClick={onButtonClick}>
+        <button
+          className="m-4 text-2xl font-bold bg-red-200 p-4 rounded-xl hover:bg-red-300 !outline-none"
+          onClick={onButtonClick}>
           Add <span className="">🧡</span>
         </button>
       </form>

@@ -5,7 +5,7 @@ type Props = {
   word: string
 }
 
-const SpreadChars = ({ word, first }: Props) => {
+const SpreadChars = ({ word }: Props) => {
   const wordArr: string[] = Array.from(word)
 
   return (
