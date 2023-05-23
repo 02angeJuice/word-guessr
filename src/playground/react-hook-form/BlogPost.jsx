@@ -11,8 +11,8 @@ const BlogPost = () => {
   }
 
   const deleteItem = (id) => {
-    console.log(id)
-    setItems(items.filter((item) => item._id !== id))
+    confirm('Confirm Delete!!') &&
+      setItems(items.filter((item) => item._id !== id))
   }
 
   const editItem = (id) => {

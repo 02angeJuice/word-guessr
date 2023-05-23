@@ -4,6 +4,10 @@ import StudentForm from './StudentForm'
 const SudentGrading = () => {
   const [item, setItem] = useState({})
 
+  const getItem = (item) => {
+    setItem(item)
+  }
+
   const calGrade = (score) => {
     if (score < 60) {
       return 'F'
@@ -16,10 +20,6 @@ const SudentGrading = () => {
     } else if (score < 100) {
       return 'A'
     }
-  }
-
-  const getItem = (item) => {
-    setItem(item)
   }
 
   return (

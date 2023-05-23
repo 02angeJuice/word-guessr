@@ -5,16 +5,16 @@ import FetchAPI from './playground/FetchAPI'
 import StudentGrading from './playground/StudentGrading/StudentGrading'
 import Calculate from './playground/Calculator/Calculate'
 import BlogPost from './playground/react-hook-form/BlogPost'
+import FetchGithubProfile from './playground/FetchGithubProfile/GithubProfile'
 
 function App() {
   return (
     <div className="p-16 mt-10 grid grid-cols-1 gap-8">
-      <div className="grid-item">
-        <BlogPost />
-        {/* <StudentGrading /> */}
-        {/* <Calculate /> */}
-        <BookStore />
-      </div>
+      {/* <BlogPost /> */}
+      {/* <StudentGrading /> */}
+      {/* <Calculate /> */}
+      {/* <BookStore /> */}
+      <FetchGithubProfile />
     </div>
   )
 }

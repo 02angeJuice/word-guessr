@@ -7,7 +7,7 @@ const BlogPostForm = ({ addItem, editItem }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm({ mode: 'onChange' })
   const [postForm, setPostForm] = useState({
     title: '',
     body: '',
@@ -15,7 +15,13 @@ const BlogPostForm = ({ addItem, editItem }) => {
   })
 
   const registerOptions = {
-    title: { required: 'Title cannot be blank' },
+    title: {
+      required: 'Title cannot be blank',
+      maxLength: {
+        value: 10,
+        message: `Too more characters !!, 10`,
+      },
+    },
     body: { required: 'Please leave a message...' },
     user: { required: 'User must be required!' },
   }
@@ -27,13 +33,8 @@ const BlogPostForm = ({ addItem, editItem }) => {
   }
 
   const handleSubmitForm = (formData) => {
-    console.log(
-      '🚀 ~ file: BlogPostForm.jsx:24 ~ handleSubmitForm ~ e:',
-      formData
-    )
-
+    console.log(formData)
     addItem(postForm)
-
     setPostForm({
       title: '',
       body: '',

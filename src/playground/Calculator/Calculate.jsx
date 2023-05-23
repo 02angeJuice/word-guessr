@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import CalculatorForm from './CalculatorForm'
 
-const CalculateResult = () => {
+const Calculate = () => {
   const [item, setItem] = useState({})
-
-  const getResult = (item) => setItem(item)
+  const { num1: n1, num2: n2, menu } = item
 
   const operators = ['+', '-', '*', '/', '%']
-  const { num1: n1, num2: n2, menu } = item
+
+  const getResult = (item) => {
+    setItem(item)
+  }
 
   const calculate = () => {
     switch (menu) {
@@ -36,4 +38,4 @@ const CalculateResult = () => {
   )
 }
 
-export default CalculateResult
+export default Calculate
