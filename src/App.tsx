@@ -6,6 +6,7 @@ import StudentGrading from './playground/StudentGrading/StudentGrading'
 import Calculate from './playground/Calculator/Calculate'
 import BlogPost from './playground/react-hook-form/BlogPost'
 import FetchGithubProfile from './playground/FetchGithubProfile/GithubProfile'
+import Todo from './playground/react-router-dom/Todo'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <StudentGrading /> */}
       {/* <Calculate /> */}
       {/* <BookStore /> */}
-      <FetchGithubProfile />
+      {/* <FetchGithubProfile /> */}
+      <Todo />
     </div>
   )
 }
