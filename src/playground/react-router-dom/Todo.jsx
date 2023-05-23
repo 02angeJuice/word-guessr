@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TodoForm from './TodoForm'
 import { v4 as uuid } from 'uuid'
 import TodoList from './TodoList'
 import './Todo.css'
 
+const getInnitialData = () => {
+  return JSON.parse(localStorage.getItem('todos'))
+}
+
 const Todo = () => {
-  const [todos, setTodos] = useState([
-    {
-      _id: uuid(),
-      title: 'Buy coffee',
-      done: false,
-    },
-  ])
+  const [todos, setTodos] = useState(getInnitialData())
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const addTodo = (title) => {
     setTodos([...todos, { _id: uuid(), title: title, done: false }])
@@ -22,8 +24,6 @@ const Todo = () => {
   }
 
   const editTodo = (target) => {
-    console.log('🚀 ~ file: Todo.jsx:25 ~ editTodo ~ target:', target)
-
     setTodos(
       todos.map((todo) => {
         if (todo._id === target._id) {
