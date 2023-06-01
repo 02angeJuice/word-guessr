@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
 import SpreadChars from './SpreadChars'
-
-type Props = {}
 
 const ShuffleWord = ({ vocab }) => {
   return (

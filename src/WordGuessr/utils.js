@@ -22,7 +22,6 @@ const imageSearch = async (keyword) => {
   const res = await fetch(url)
   const data = await res.json()
 
-  // const parseJSON = JSON.stringify(data)
   return data
 }
 

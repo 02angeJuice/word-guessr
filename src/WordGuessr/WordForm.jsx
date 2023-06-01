@@ -8,13 +8,13 @@ const Form = () => {
   const [word, setWord] = useState('')
   const [vocab, setVocab] = useState([])
 
-  const handleInputChange = (event: React.FormEvent) => {
-    const inputWord = event.target.value
+  const handleInputChange = (e) => {
+    const inputWord = e.target.value
 
     setWord(inputWord.trim())
   }
 
-  const onButtonClick = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     if (word !== '') {
@@ -22,6 +22,7 @@ const Form = () => {
         ...vocab,
         { _id: uuid(), word: word, shuffle: genShuffle(word) },
       ])
+
       setWord('')
     }
   }
@@ -31,7 +32,7 @@ const Form = () => {
       <div>
         <SpreadChars word={word} />
       </div>
-      <form onSubmit={onButtonClick} className="m-4">
+      <form onSubmit={handleSubmit} className="m-4">
         <input
           onChange={handleInputChange}
           className="text-3xl p-3 text-center"
@@ -41,9 +42,7 @@ const Form = () => {
           maxLength={13}
           required
         />
-        <button
-          className="m-4 text-2xl font-bold bg-red-200 p-4 rounded-xl hover:bg-red-300 !outline-none"
-          onClick={onButtonClick}>
+        <button className="m-4 text-2xl font-bold bg-red-200 p-4 rounded-xl hover:bg-red-300 !outline-none">
           Add <span className="">🧡</span>
         </button>
       </form>

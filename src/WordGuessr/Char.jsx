@@ -1,10 +1,6 @@
 import React from 'react'
 
-type Props = {
-  char: string
-}
-
-const Char = ({ char }: Props) => {
+const Char = ({ char }) => {
   const onMouseClick = () => {
     console.log(char)
   }

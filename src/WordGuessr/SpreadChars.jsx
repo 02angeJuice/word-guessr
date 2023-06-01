@@ -1,12 +1,7 @@
-import { useState } from 'react'
 import Char from './Char'
 
-type Props = {
-  word: string
-}
-
-const SpreadChars = ({ word }: Props) => {
-  const wordArr: string[] = Array.from(word)
+const SpreadChars = ({ word }) => {
+  const wordArr = Array.from(word)
 
   return (
     <div>
